@@ -29,6 +29,14 @@ export const theme = {
     white: {
       default: "#fff",
     },
+    green: {
+      light: "#c2f7e1",
+      default: "#006b57"
+    },
+    red: {
+      light: "#FFCCCB",
+      default: "#FF0000"
+    }
   },
   typography: {
     xs: {
@@ -68,6 +76,11 @@ export const theme = {
       lineHeight: 1.1,
     },
   },
+  fontWeight: {
+    light: 200,
+    medium: 300,
+    bold: 600
+  },
   space: {
     xs: "4px",
     s: "8px",
@@ -85,4 +98,7 @@ export const theme = {
     xxl: 1400,
     xxxl: 1600,
   },
+  border: {
+    radius: "24px"
+  }
 }

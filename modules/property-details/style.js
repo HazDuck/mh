@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 export const AccountList = styled.ul`
   list-style: none;
   padding-left: 0;
+  width: 100%;
 `;
 
 export const AccountLabel = styled.div`
@@ -32,11 +33,12 @@ export const AccountSection = styled.div`
   &:not(:last-of-type) {
     border-bottom: 1px solid ${(props) => props.theme.colors.neutral[200]};
   }
-}
 `;
 
 export const AccountListItem = styled.div`
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   &:not(:last-of-type) {
     margin-bottom: ${(props) => props.theme.space.m};
