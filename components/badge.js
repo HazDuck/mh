@@ -11,7 +11,7 @@ text-align: center;
 
 @media screen and (max-width: ${({theme}) => theme.breakpoints.s}px) {
   padding: ${({theme}) => theme.space.s} ${({theme}) => theme.space.s};
-  width: 185px;
+  width: 175px;
 }
 `
 

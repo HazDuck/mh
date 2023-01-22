@@ -1,12 +1,13 @@
 /* eslint-disable max-statements */
-import { add, format } from "date-fns";
 import React from "react";
-import Badge from "../../components/badge";
-import { Button } from "../../components/button";
-import RowContainer from "../../components/row-container";
+import { Button } from "../../components/Button";
 import {
-  AccountHeadline, AccountLabel, AccountList, AccountListItem, AccountSection, InfoText, Inset,
+  Inset,
 } from "./style";
+import ValuationChange from "./ValuationChange"
+import PropertyDetails from "./PropertyDetails";
+import Mortgage from "./Mortgage";
+import PropertyValue from "./PropertyValue"
 
 const account = {
   uid: "65156cdc-5cfd-4b34-b626-49c83569f35e",
@@ -34,121 +35,12 @@ const account = {
 };
 
 const Detail = () => {
-  const yearsSincePurchase = (purchase) => {
-    const now = new Date();
-    let yearsDiff;
-
-    //if the purchase time is after now return null, else return the number of years
-    if (purchase.getTime() > now.getTime()) {
-      yearsDiff = null
-    } else {
-      yearsDiff =  now.getFullYear() - purchase.getFullYear();
-    }
-    if (yearsDiff === 0) {
-      yearsDiff = 1
-    }
-    return yearsDiff;
-  }
-
-  const purchaseDate = new Date(account.originalPurchasePriceDate);
-  const valueChange = account.recentValuation.amount - account.originalPurchasePrice
-  const valueChangePercentage = (valueChange / account.originalPurchasePrice) * 100
-  const annualAppreciation = valueChangePercentage / yearsSincePurchase(purchaseDate)
-  const rounndedAnnualAppreciation = Math.round(annualAppreciation * 10) / 10
-  const lastUpdate = new Date(account.lastUpdate);
-  const mortgage = account.associatedMortgages.length ? account.associatedMortgages[0] : null
-
   return (
     <Inset>
-      <AccountSection>
-        <AccountLabel>Estimated Value</AccountLabel>
-        <AccountHeadline>
-          {new Intl.NumberFormat("en-GB", {
-            style: "currency",
-            currency: "GBP",
-          }).format(account.recentValuation.amount)}
-        </AccountHeadline>
-        <AccountList>
-          <AccountListItem><InfoText>
-            {`Last updated ${format(lastUpdate, "do MMM yyyy")}`}
-          </InfoText></AccountListItem>
-          <AccountListItem><InfoText>
-            {`Next update ${format(
-              add(lastUpdate, { days: account.updateAfterDays }),
-              "do MMM yyyy"
-            )}`}
-          </InfoText></AccountListItem>
-        </AccountList>
-      </AccountSection>
-      <AccountSection>
-        <AccountLabel>Property details</AccountLabel>
-        <RowContainer>
-          <AccountList>
-            <AccountListItem><InfoText>{account.name}</InfoText></AccountListItem>
-            <AccountListItem><InfoText>{account.bankName}</InfoText></AccountListItem>
-            <AccountListItem><InfoText>{account.postcode}</InfoText></AccountListItem>
-          </AccountList>
-        </RowContainer>
-      </AccountSection>
-      <AccountSection>
-        <AccountLabel>Valuation Change</AccountLabel>
-        <RowContainer>
-          <AccountList>
-            <AccountListItem>
-              <InfoText>
-                {`Purchased for ${
-                new Intl.NumberFormat("en-GB", {
-                  style: "currency",
-                  currency: "GBP",
-                  minimumFractionDigits: 0,
-                  maximumFractionDigits: 0,
-                }).format(
-                  Math.abs(account.originalPurchasePrice)
-                )} in ${format(purchaseDate, "MMMM yyyy")}`}
-              </InfoText>
-            </AccountListItem>
-            <AccountListItem>
-              <InfoText>Since purchase</InfoText>
-              <Badge>{`${
-                new Intl.NumberFormat("en-GB", {
-                  style: "currency",
-                  currency: "GBP",
-                  minimumFractionDigits: 0,
-                  maximumFractionDigits: 0,
-                }).format(
-                  Math.abs(valueChange)
-                )} (${valueChangePercentage}%)`}</Badge>
-            </AccountListItem>
-            {annualAppreciation ? (
-              <AccountListItem>
-              <InfoText>Annual appreciation</InfoText>
-              <Badge color={annualAppreciation < 0 ? 'red' : undefined}>{`${rounndedAnnualAppreciation}%`}</Badge>
-            </AccountListItem>
-            ) : null}        
-          </AccountList>
-        </RowContainer>
-      </AccountSection>
-      {mortgage && (
-        <AccountSection>
-          <AccountLabel>Mortgage</AccountLabel>
-          <RowContainer
-            // This is a dummy action
-            onClick={() => alert("You have navigated to the mortgage page")}
-          >
-            <AccountList>
-              <AccountListItem><InfoText>
-                {new Intl.NumberFormat("en-GB", {
-                  style: "currency",
-                  currency: "GBP",
-                }).format(
-                  Math.abs(account.associatedMortgages[0].currentBalance)
-                )}
-              </InfoText></AccountListItem>
-              <AccountListItem><InfoText>{account.associatedMortgages[0].name}</InfoText></AccountListItem>
-            </AccountList>
-          </RowContainer>
-        </AccountSection>
-      )}
+      <PropertyValue account={account}/>
+      <PropertyDetails account={account}/>
+      <ValuationChange account={account}/>
+      <Mortgage account={account}/>
       <Button
         // This is a dummy action
         onClick={() => alert("You have navigated to the edit account page")}

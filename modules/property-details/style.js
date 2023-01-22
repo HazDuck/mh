@@ -25,6 +25,10 @@ export const InfoText = styled.div`
   line-height: 1.6;
   font-size: ${(props) => props.theme.typography.m.fontSize};
   color: ${(props) => props.theme.colors.neutral[600]};
+
+  span {
+    font-weight: ${(props) => props.theme.fontWeight.bold};
+  }
 `;
 
 export const AccountSection = styled.div`
