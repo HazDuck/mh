@@ -33,15 +33,8 @@ const account = {
   updateAfterDays: 30,
 };
 
-const Detail = ({}) => {
-  let mortgage;
-  const lastUpdate = new Date(account.lastUpdate);
-  if (account.associatedMortgages.length) {
-    mortgage = account.associatedMortgages[0];
-  }
-
-  const yearsSincePurchase = (purchaseDate) => {
-    const purchase = new Date(purchaseDate);
+const Detail = () => {
+  const yearsSincePurchase = (purchase) => {
     const now = new Date();
     let yearsDiff;
 
@@ -57,10 +50,13 @@ const Detail = ({}) => {
     return yearsDiff;
   }
 
+  const purchaseDate = new Date(account.originalPurchasePriceDate);
   const valueChange = account.recentValuation.amount - account.originalPurchasePrice
   const valueChangePercentage = (valueChange / account.originalPurchasePrice) * 100
-  const annualAppreciation = valueChangePercentage / yearsSincePurchase(account.originalPurchasePriceDate)
+  const annualAppreciation = valueChangePercentage / yearsSincePurchase(purchaseDate)
   const rounndedAnnualAppreciation = Math.round(annualAppreciation * 10) / 10
+  const lastUpdate = new Date(account.lastUpdate);
+  const mortgage = account.associatedMortgages.length ? account.associatedMortgages[0] : null
 
   return (
     <Inset>
@@ -99,7 +95,17 @@ const Detail = ({}) => {
         <RowContainer>
           <AccountList>
             <AccountListItem>
-              <InfoText>TODO</InfoText>
+              <InfoText>
+                {`Purchased for ${
+                new Intl.NumberFormat("en-GB", {
+                  style: "currency",
+                  currency: "GBP",
+                  minimumFractionDigits: 0,
+                  maximumFractionDigits: 0,
+                }).format(
+                  Math.abs(account.originalPurchasePrice)
+                )} in ${format(purchaseDate, "MMMM yyyy")}`}
+              </InfoText>
             </AccountListItem>
             <AccountListItem>
               <InfoText>Since purchase</InfoText>
@@ -107,6 +113,8 @@ const Detail = ({}) => {
                 new Intl.NumberFormat("en-GB", {
                   style: "currency",
                   currency: "GBP",
+                  minimumFractionDigits: 0,
+                  maximumFractionDigits: 0,
                 }).format(
                   Math.abs(valueChange)
                 )} (${valueChangePercentage}%)`}</Badge>
@@ -114,7 +122,7 @@ const Detail = ({}) => {
             {annualAppreciation ? (
               <AccountListItem>
               <InfoText>Annual appreciation</InfoText>
-              <Badge color={annualAppreciation < 0 && 'red'}>{`${rounndedAnnualAppreciation}%`}</Badge>
+              <Badge color={annualAppreciation < 0 ? 'red' : undefined}>{`${rounndedAnnualAppreciation}%`}</Badge>
             </AccountListItem>
             ) : null}        
           </AccountList>
