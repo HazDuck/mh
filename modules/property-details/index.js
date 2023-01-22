@@ -1,4 +1,3 @@
-/* eslint-disable max-statements */
 import React from "react";
 import { Button } from "../../components/Button";
 import {
@@ -8,7 +7,7 @@ import ValuationChange from "./ValuationChange"
 import PropertyDetails from "./PropertyDetails";
 import Mortgage from "./Mortgage";
 import PropertyValue from "./PropertyValue"
-
+import PropTypes from "prop-types";
 
 const Detail = ({accountData: {account}}) => {
   return (
@@ -25,6 +24,10 @@ const Detail = ({accountData: {account}}) => {
       </Button>
     </Inset>
   );
-};
+
+  Detail.propTypes = {
+    accountData: PropTypes.object
+  }
+}
 
 export default Detail;

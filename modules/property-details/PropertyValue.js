@@ -8,8 +8,9 @@ import {
   AccountHeadline
 } from "./style"
 import formatPrice from "../../utils/formatPrice";
+import PropTypes from "prop-types";
 
-const Value = ({account}) => {
+const PropertyValue = ({account}) => {
   const lastUpdate = new Date(account.lastUpdate)
   return (
     <AccountSection>
@@ -30,6 +31,10 @@ const Value = ({account}) => {
       </AccountList>
     </AccountSection>
   )
+
+  PropertyDetails.propTypes = {
+    account: PropTypes.object
+  }
 }
 
-export default Value
+export default PropertyValue

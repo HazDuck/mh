@@ -6,6 +6,7 @@ import {
 import formatPrice from "../../utils/formatPrice"
 import RowContainer from "../../components/RowContainer";
 import yearsSincePurchase from "../../utils/yearsSincePurchase";
+import PropTypes from "prop-types";
 
 const ValuationChange =({account}) => {
   const purchaseDate = new Date(account.originalPurchasePriceDate);
@@ -42,6 +43,10 @@ const ValuationChange =({account}) => {
       </AccountSection>
     </>
   )
+
+  ValuationChange.propTypes = {
+    account: PropTypes.object
+  }
 }
 
 export default ValuationChange

@@ -7,6 +7,7 @@ import {
   InfoText
 } from "./style"
 import formatPrice from "../../utils/formatPrice";
+import PropTypes from "prop-types";
 
 const Mortgage = ({account}) => {
   const mortgage = account.associatedMortgages.length ? account.associatedMortgages[0] : null
@@ -31,6 +32,10 @@ const Mortgage = ({account}) => {
       ) : null }
     </>
   )
+
+  Mortgage.propTypes = {
+    account: PropTypes.object
+  }
 }
 
 export default Mortgage
