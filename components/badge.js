@@ -10,8 +10,8 @@ font-weight: ${({theme}) => theme.fontWeight.bold};
 text-align: center;
 
 @media screen and (max-width: ${({theme}) => theme.breakpoints.s}px) {
-  width: 150px;
-  padding: ${({theme}) => theme.space.s} ${({theme}) => theme.space.xs};
+  padding: ${({theme}) => theme.space.s} ${({theme}) => theme.space.s};
+  width: 185px;
 }
 `
 
