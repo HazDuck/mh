@@ -85,3 +85,16 @@ To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+
+### Questions
+
+Given more time, what other changes you would have liked to make?
+- I would have spent time making the code DRY-er e.g. reorganising the account row components
+- I would have have spent more time working on the prop type checking, what I've added is quite basic
+
+What UX or design improvements or alterations might you suggest? These can be to existing components or completely new ideas.
+
+- I added a small change so the styling of the badges (next to since purchase and annual appreciation) have styles based on if the house is increasing or decreasing in value. Given more time I'd haved added an another set of styles to cover if the house price is the same. Also I would of potentially added a tool tip so customers can reach out for more info.
+- If more account sections are added, I would look into the making the account sections into accordions or adding some navigation
+- As the postcode is returned in the account data, I'd investigate doing a lookup and comparing the most recent valuation to other properties in the area
