@@ -60,6 +60,7 @@ const Detail = ({}) => {
   const valueChange = account.recentValuation.amount - account.originalPurchasePrice
   const valueChangePercentage = (valueChange / account.originalPurchasePrice) * 100
   const annualAppreciation = valueChangePercentage / yearsSincePurchase(account.originalPurchasePriceDate)
+  const rounndedAnnualAppreciation = Math.round(annualAppreciation * 10) / 10
 
   return (
     <Inset>
@@ -110,10 +111,12 @@ const Detail = ({}) => {
                   Math.abs(valueChange)
                 )} (${valueChangePercentage}%)`}</Badge>
             </AccountListItem>
-            <AccountListItem>
+            {annualAppreciation ? (
+              <AccountListItem>
               <InfoText>Annual appreciation</InfoText>
-              <Badge color={annualAppreciation < 0 && 'red'}>{`${annualAppreciation}%`}</Badge>
+              <Badge color={annualAppreciation < 0 && 'red'}>{`${rounndedAnnualAppreciation}%`}</Badge>
             </AccountListItem>
+            ) : null}        
           </AccountList>
         </RowContainer>
       </AccountSection>
