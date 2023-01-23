@@ -98,3 +98,15 @@ What UX or design improvements or alterations might you suggest? These can be to
 - I added a small change so the styling of the badges (next to since purchase and annual appreciation) have styles based on if the house is increasing or decreasing in value. Given more time I'd haved added an another set of styles to cover if the house price is the same. Also I would of potentially added a tool tip so customers can reach out for more info.
 - If more account sections are added, I would look into the making the account sections into accordions or adding some navigation
 - As the postcode is returned in the account data, I'd investigate doing a lookup and comparing the most recent valuation to other properties in the area
+
+Note: 
+
+I grabbed the account data using getStaticProps in the page index however an alternative approach would be the below in the Detail component...
+
+useEffect(() => {
+  (async function () {
+    const res = await fetch('http://localhost:3333/api/account')
+    const data  = await res.json()
+    //next, pass the data to components via props
+  })()
+}, [])
