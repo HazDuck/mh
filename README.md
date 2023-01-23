@@ -94,6 +94,7 @@ Given more time, what other changes you would have liked to make?
 - I would have have spent more time working on the prop type checking, what I've added is quite basic
 - I would have spent more time ensuring all components are accessible e.g. using correct HTML elements, semantic HTML etc
 - I would have spent more time checking code for edge cases, if incorrect data was returned from the account fetch
+- I'd review the yearsSincePurchase logic to ensure it 'feels' right for a customer i.e. when was something 1 year vs 2 years ago, would this create a sudden dip in the annual appreciation? I'd look into using something like moment js if needed
 
 What UX or design improvements or alterations might you suggest? These can be to existing components or completely new ideas.
 
