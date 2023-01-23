@@ -24,10 +24,10 @@ const Detail = ({accountData: {account}}) => {
       </Button>
     </Inset>
   );
+}
 
-  Detail.propTypes = {
-    accountData: PropTypes.object
-  }
+Detail.propTypes = {
+  accountData: PropTypes.object
 }
 
 export default Detail;

@@ -17,10 +17,10 @@ text-align: center;
 
 const BadgeItem = ({color}) => {
   return <Badge color={color}/>
+}
 
-  BadgeItem.propTypes = {
-    color: PropTypes.string
-  }
+BadgeItem.propTypes = {
+  color: PropTypes.string
 }
 
 export default Badge

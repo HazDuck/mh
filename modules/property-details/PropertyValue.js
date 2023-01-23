@@ -31,10 +31,10 @@ const PropertyValue = ({account}) => {
       </AccountList>
     </AccountSection>
   )
+}
 
-  PropertyDetails.propTypes = {
-    account: PropTypes.object
-  }
+PropertyValue.propTypes = {
+  account: PropTypes.object
 }
 
 export default PropertyValue

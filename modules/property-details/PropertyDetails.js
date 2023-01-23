@@ -17,10 +17,10 @@ const PropertyDetails = ({account}) => {
       </RowContainer>
     </AccountSection>
   )
+}
 
-  PropertyDetails.propTypes = {
-    account: PropTypes.object
-  }
+PropertyDetails.propTypes = {
+  account: PropTypes.object
 }
 
 export default PropertyDetails

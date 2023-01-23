@@ -32,10 +32,10 @@ const Mortgage = ({account}) => {
       ) : null }
     </>
   )
+}
 
-  Mortgage.propTypes = {
-    account: PropTypes.object
-  }
+Mortgage.propTypes = {
+  account: PropTypes.object
 }
 
 export default Mortgage

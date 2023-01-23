@@ -43,10 +43,10 @@ const ValuationChange =({account}) => {
       </AccountSection>
     </>
   )
+}
 
-  ValuationChange.propTypes = {
-    account: PropTypes.object
-  }
+ValuationChange.propTypes = {
+  account: PropTypes.object
 }
 
 export default ValuationChange
