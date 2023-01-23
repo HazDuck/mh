@@ -92,6 +92,7 @@ To learn more about Next.js, take a look at the following resources:
 Given more time, what other changes you would have liked to make?
 - I would have spent time making the code DRY-er e.g. reorganising the account row components
 - I would have have spent more time working on the prop type checking, what I've added is quite basic
+- I would have spent more time ensuring all components are accessible e.g. using correct HTML elements, semantic HTML etc
 
 What UX or design improvements or alterations might you suggest? These can be to existing components or completely new ideas.
 
