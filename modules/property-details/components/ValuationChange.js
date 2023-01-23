@@ -32,7 +32,7 @@ const ValuationChange =({account}) => {
                 {`${valueChange < 0 ? '-' : ''}${formatPrice(valueChange)} (${valueChangePercentage}%)`}
               </Badge>
             </AccountListItem>
-            {annualAppreciation ? (
+            {annualAppreciation !== Infinity ? (
               <AccountListItem>
                 <InfoText>Annual appreciation</InfoText>
                 <Badge color={annualAppreciation < 0 ? 'red' : undefined}>{`${roundedAnnualAppreciation}%`}</Badge>
