@@ -1,13 +1,14 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Button } from "../../components/Button";
+import ValuationChange from "./components/ValuationChange"
+import PropertyDetails from "./components/PropertyDetails";
+import PropertyValue from "./components/PropertyValue"
+import Mortgage from "./components/Mortgage";
 import {
   Inset,
 } from "./style";
-import ValuationChange from "./ValuationChange"
-import PropertyDetails from "./PropertyDetails";
-import Mortgage from "./Mortgage";
-import PropertyValue from "./PropertyValue"
-import PropTypes from "prop-types";
+
 
 const Detail = ({accountData: {account}}) => {
   return (

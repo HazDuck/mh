@@ -6,8 +6,8 @@ import {
   AccountSection, 
   InfoText,
   AccountHeadline
-} from "./style"
-import formatPrice from "../../utils/formatPrice";
+} from "../style"
+import formatPrice from "../../../utils/formatPrice";
 import PropTypes from "prop-types";
 
 const PropertyValue = ({account}) => {

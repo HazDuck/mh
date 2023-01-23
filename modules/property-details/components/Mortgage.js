@@ -1,12 +1,12 @@
-import RowContainer from "../../components/RowContainer";
+import RowContainer from "../../../components/RowContainer";
 import {  
   AccountLabel, 
   AccountList, 
   AccountListItem, 
   AccountSection, 
   InfoText
-} from "./style"
-import formatPrice from "../../utils/formatPrice";
+} from "../style"
+import formatPrice from "../../../utils/formatPrice";
 import PropTypes from "prop-types";
 
 const Mortgage = ({account}) => {

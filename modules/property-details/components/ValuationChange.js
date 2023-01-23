@@ -1,11 +1,11 @@
-import Badge from "../../components/Badge"
+import Badge from "../../../components/Badge"
 import { format } from "date-fns";
 import {
   AccountLabel, AccountList, AccountListItem, AccountSection, InfoText
-} from "./style";
-import formatPrice from "../../utils/formatPrice"
-import RowContainer from "../../components/RowContainer";
-import yearsSincePurchase from "../../utils/yearsSincePurchase";
+} from "../style";
+import formatPrice from "../../../utils/formatPrice"
+import RowContainer from "../../../components/RowContainer";
+import yearsSincePurchase from "../../../utils/yearsSincePurchase";
 import PropTypes from "prop-types";
 
 const ValuationChange =({account}) => {

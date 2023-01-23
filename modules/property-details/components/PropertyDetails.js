@@ -1,7 +1,7 @@
 import {
   AccountLabel, AccountList, AccountListItem, AccountSection, InfoText
-} from "./style";
-import RowContainer from "../../components/RowContainer"
+} from "../style";
+import RowContainer from "../../../components/RowContainer"
 import PropTypes from "prop-types";
 
 const PropertyDetails = ({account}) => {
